@@ -434,7 +434,7 @@ async function runTool(name, input, ctx) {
 // ───────────────────────── Claude ─────────────────────────
 async function callClaude(messages, dynamicSystem) {
   const body = {
-    model: CFG.model, max_tokens: 1024,
+    model: CFG.model, max_tokens: 600,
     system: [{ type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } }, { type: 'text', text: dynamicSystem }],
     tools: TOOLS, messages,
   };
@@ -532,7 +532,7 @@ async function downloadMedia(mediaId) {
 
 // ───────────────────────── المحادثات ─────────────────────────
 const CONV_TTL = 24 * 60 * 60 * 1000;
-const MAX_HISTORY = 40;
+const MAX_HISTORY = 16;
 const convFile = path.join(CFG.dataDir, 'conversations.json');
 let convs = {};
 try {
