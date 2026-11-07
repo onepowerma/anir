@@ -703,8 +703,8 @@ const server = http.createServer((req, res) => {
     req.on('data', (c) => { size += c.length; if (size > 2e6) req.destroy(); else chunks.push(c); });
     req.on('end', () => {
       const raw = Buffer.concat(chunks);
-      if (!validSignature(raw, req.headers['x-hub-signature-256'])) { res.writeHead(401); return res.end('bad signature'); }
-      res.writeHead(200); res.end('ok');
+      if (!validSignature(raw, req.headers['x-hub-signature-256'])) { log('⚠️ توقيع webhook غير صالح: تحقق من META_APP_SECRET'); res.writeHead(401); return res.end('bad signature'); }
+      res.writeHead(200); res.end('ok'); log('webhook وصل من واتساب');
       try { handlePayload(JSON.parse(raw.toString('utf8'))); } catch (e) { log('payload غير صالح:', e.message); }
     });
     return;
