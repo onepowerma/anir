@@ -10,14 +10,116 @@
     "notes": ""
   },
   "shipping": {
-    "configured": false,
-    "default_zone": { "price": 0, "delivery_time": "", "free_over": null },
+    "configured": true,
+    "default_zone": {
+      "price": 45,
+      "delivery_time": "24 إلى 48 ساعة",
+      "free_over": null
+    },
     "zones": [
       {
-        "name": "مثال: الدار البيضاء والرباط",
-        "cities": ["Casablanca", "الدار البيضاء", "Rabat", "الرباط"],
-        "price": 0,
-        "delivery_time": "",
+        "name": "الدار البيضاء",
+        "cities": [
+          "Casablanca",
+          "الدار البيضاء",
+          "كازابلانكا"
+        ],
+        "price": 20,
+        "delivery_time": "24 إلى 48 ساعة",
+        "free_over": null
+      },
+      {
+        "name": "ضواحي الدار البيضاء",
+        "cities": [
+          "Bouskoura",
+          "بوسكورة",
+          "Ain Harouda",
+          "عين حرودة",
+          "Errahma",
+          "الرحمة",
+          "Tit Mellil",
+          "تيط مليل"
+        ],
+        "price": 30,
+        "delivery_time": "24 إلى 48 ساعة",
+        "free_over": null
+      },
+      {
+        "name": "المدن الكبرى",
+        "cities": [
+          "Agadir",
+          "أكادير",
+          "Ait Melloul",
+          "أيت ملول",
+          "Berrechid",
+          "برشيد",
+          "El Jadida",
+          "الجديدة",
+          "Fes",
+          "Fès",
+          "فاس",
+          "Inezgane",
+          "إنزكان",
+          "Marrakech",
+          "مراكش",
+          "Meknes",
+          "مكناس",
+          "Rabat",
+          "الرباط",
+          "Sale",
+          "سلا",
+          "Tanger",
+          "Tangier",
+          "طنجة",
+          "Temara",
+          "تمارة",
+          "Tetouan",
+          "تطوان",
+          "Mohammedia",
+          "المحمدية",
+          "Dar Bouazza",
+          "دار بوعزة",
+          "Nouaceur",
+          "النواصر",
+          "Mediouna",
+          "مديونة",
+          "Benslimane",
+          "بنسليمان",
+          "Kenitra",
+          "القنيطرة"
+        ],
+        "price": 35,
+        "delivery_time": "24 إلى 48 ساعة",
+        "free_over": null
+      },
+      {
+        "name": "مدن متوسطة",
+        "cities": [
+          "Safi",
+          "آسفي",
+          "Beni Mellal",
+          "بني ملال",
+          "Khouribga",
+          "خريبكة",
+          "Larache",
+          "العرائش",
+          "Martil",
+          "مرتيل",
+          "Settat",
+          "سطات",
+          "Sefrou",
+          "صفرو",
+          "Tiznit",
+          "تيزنيت",
+          "Taroudant",
+          "تارودانت",
+          "Sidi Kacem",
+          "سيدي قاسم",
+          "Bouznika",
+          "بوزنيقة"
+        ],
+        "price": 40,
+        "delivery_time": "24 إلى 48 ساعة",
         "free_over": null
       }
     ]
