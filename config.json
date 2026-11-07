@@ -1,0 +1,43 @@
+{
+  "store": {
+    "name": "One Power",
+    "website": "https://onepower.ma",
+    "timezone": "Africa/Casablanca",
+    "country": "MA",
+    "currency": "MAD",
+    "handoff_whatsapp": "212XXXXXXXXX",
+    "staff_notify_numbers": [],
+    "notes": ""
+  },
+  "shipping": {
+    "configured": false,
+    "default_zone": { "price": 0, "delivery_time": "", "free_over": null },
+    "zones": [
+      {
+        "name": "مثال: الدار البيضاء والرباط",
+        "cities": ["Casablanca", "الدار البيضاء", "Rabat", "الرباط"],
+        "price": 0,
+        "delivery_time": "",
+        "free_over": null
+      }
+    ]
+  },
+  "payments": [
+    {
+      "id": "cod",
+      "label": "الدفع عند الاستلام",
+      "wc_method": "cod",
+      "order_status": "processing",
+      "enabled": true,
+      "instructions": ""
+    },
+    {
+      "id": "bank_transfer",
+      "label": "تحويل بنكي",
+      "wc_method": "bacs",
+      "order_status": "on-hold",
+      "enabled": false,
+      "instructions": "ضع هنا بيانات الحساب (الاسم، RIB) وطلب إرسال إيصال التحويل. فعّل enabled بعد ملئها."
+    }
+  ]
+}
