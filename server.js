@@ -202,7 +202,7 @@ async function toolListCategories() {
   const items = await loadCatalog();
   const counts = {};
   for (const it of items) for (const c of it.categories) counts[c] = (counts[c] || 0) + 1;
-  return { categories: Object.entries(counts).map(([name, count]) => ({ name, products: count })) };
+  return { categories: Object.keys(counts).map((name) => ({ name })) };
 }
 
 async function toolGetProduct({ product_id }) {
@@ -402,10 +402,8 @@ const TOOLS = [
     input_schema: { type: 'object', properties: { query: { type: 'string' }, limit: { type: 'integer' } }, required: ['query'] } },
   { name: 'get_product', description: 'Get live full details of one product by id: description (ingredients, directions, warnings as written by the manufacturer/store), price, stock and variations (with variation_id).',
     input_schema: { type: 'object', properties: { product_id: { type: 'integer' } }, required: ['product_id'] } },
-  { name: 'list_categories', description: 'List the store product categories with product counts. Use when the customer asks what the store sells.',
+  { name: 'list_categories', description: 'List the store product category names only. Use when the customer asks what the store sells. Never mention how many products are in a category.',
     input_schema: { type: 'object', properties: {} } },
-  { name: 'search_knowledge', description: "Search the store's vetted reference notes (summaries from recognized scientific bodies, each with its source). Use BEFORE making any general nutrition or supplement science statement that is not on the product page.",
-    input_schema: { type: 'object', properties: { query: { type: 'string' } }, required: ['query'] } },
   { name: 'get_shipping_price', description: 'Get the delivery price and delivery time for a city, optionally applying free-shipping thresholds using the products subtotal.',
     input_schema: { type: 'object', properties: { city: { type: 'string' }, order_subtotal: { type: 'number' } }, required: ['city'] } },
   { name: 'create_order', description: 'Create the order in the store. Call ONLY after the customer explicitly confirmed the full summary (products, quantities, address, shipping, payment). Never call it twice for the same order. Prices and totals are computed by the store, not by you.',
@@ -426,7 +424,6 @@ async function runTool(name, input, ctx) {
     case 'search_products': return toolSearchProducts(input);
     case 'get_product': return toolGetProduct(input);
     case 'list_categories': return toolListCategories();
-    case 'search_knowledge': return toolSearchKnowledge(input);
     case 'get_shipping_price': return toolGetShipping(input);
     case 'create_order': return toolCreateOrder(input, ctx);
     case 'handoff_to_human': return toolHandoff(input, ctx);
